@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+
+    {% block body_block %}
+
+<br><br><br><br><br>
+
+<h1> VIEW REMINDERS </h1>
+<br><br><br>
+<a href="{% url 'setreminder' %}">back</a>
+<br><br><br>
+<table border="2">
+    <tr>
+        <td>No</td>
+        <td>Reminder Date</td>
+        <td>Reminder Time</td>
+        <td>Reminder Data</td>
+        <td>Edit</td>
+        <td>Delete</td>
+
+
+    </tr>
+     {% for val in object %}
+    <tr>
+
+        <td>{{ val.id }}</td>
+        <td>{{ val.reminder_date }}</td>
+        <td>{{ val.reminder_time}}</td>
+        <td>{{ val.remider_data }}</td>
+        <td><a href="{% url 'editdata' val.id  %}">Edit</a></td>
+        <td><a href="{% url 'deletedata' val.id  %}">Delete</a></td>
+
+
+
+
+    </tr>
+
+
+
+    {% endfor %}
+
+</table>
+
+{% endblock %}
+
